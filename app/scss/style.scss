@@ -79,6 +79,11 @@ $widthContainer: 1300;
             margin: 0;
             text-align: center;
         }
+        a {
+            img {
+                display: inline-block;
+            }
+        }
     }
     &__form {
         @media(max-width: $phone) {
@@ -345,9 +350,7 @@ $widthContainer: 1300;
         object-fit: cover;
         background-repeat: no-repeat;
         object-position: 10% 50%;
-        @media(max-width: $phone) {
-            height: 300px;
-        }
+        
     }
 }
 
@@ -586,11 +589,14 @@ $widthContainer: 1300;
     &__text{
         margin-right: 26px;
         font-weight: bold;
-        $fontFamily: 'Gliroy', sans-serif;
         font-size: 14px;
         @media(max-width: $phone) {
             margin-right: 15px;
         }
+    }
+    &__links {
+        display: flex;
+        align-items: center;
     }
     &__link {
         &:not(:last-child) {

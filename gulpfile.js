@@ -5,7 +5,7 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
-const del = require('del')
+const del = require('del');
 
 function browserSync () {
     browsersync.init({

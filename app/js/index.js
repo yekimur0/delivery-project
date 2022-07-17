@@ -22,7 +22,7 @@
   
   ymaps.ready(init);
 
-  function init() {
+  async function init() {
     var myMap = new ymaps.Map("map", {
       center: [55.760824, 37.230857],
       zoom: 16,
@@ -66,9 +66,15 @@
 
   const secFood = document.querySelector('.food')
   const hum = document.querySelector('.menu-header__icon');
-  const buttonUp = document.querySelector('[data-name="button-top"]')
 
-  secFood.addEventListener('click', addToCard);
+  // listener 
+  document.querySelector('body').addEventListener('click', (e) => {
+    if(e.target.closest('.food')) {
+      secFood.addEventListener('click', addToCard);
+    }
+  })
+  // listener 
+
 
   function addToCard (event) {
     if(event.target.closest('.food-item__btn')) {
@@ -81,7 +87,6 @@
   }
 
   hum.addEventListener('click', openMenu);
-  // buttonUp.addEventListener('click', scrollToUp)
 
   function openMenu () {
     const menuHeader = document.querySelector('.menu-header__wrapper');
