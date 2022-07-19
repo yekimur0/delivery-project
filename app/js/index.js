@@ -69,24 +69,36 @@
 
   // listener 
   document.querySelector('body').addEventListener('click', (e) => {
-    if(e.target.closest('.food')) {
-      secFood.addEventListener('click', addToCard);
+    let target = e.target;
+    if(target.closest('.food-item__btn')) {
+        addToCard(target)
     }
   })
   // listener 
-
-
-  function addToCard (event) {
-    if(event.target.closest('.food-item__btn')) {
-        let Item = event.target.closest('.item');
-        let counterItem = Item.querySelector('.food-item__label');
-        
-        counterItem.classList.add('_active')
-        
-    }
-  }
-
   hum.addEventListener('click', openMenu);
+
+// --------------------------------------------------
+
+  function addToCard (target) {
+     let item = target.closest('.item');
+     let counterItem = item.querySelector('.food-item__label')
+         counterItem.classList.add('_active'); 
+     let itemPrice = item.querySelector('.food-item__price').innerText;
+     let itemWrapper = item.querySelector('.food-item__body');
+     const itemBottom = item.querySelector('.food-item__bottom')  
+     const counterTemplate = ` 
+
+      <div class="food-item__counter counter">
+      <button class="counter__btn" data-name="minus-btn"><img src="./images/icons/minus.svg" alt=""></button>
+      <div class="counter__num" data-name="counter">${itemPrice}</div>
+      <button class="counter__btn"data-name="plus-btn"><img src="./images/icons/plus.svg" alt=""></button>
+    </div>
+
+     `;
+     itemBottom.classList.add('hidden-a') 
+     itemWrapper.insertAdjacentHTML('beforeend', counterTemplate);
+
+  }
 
   function openMenu () {
     const menuHeader = document.querySelector('.menu-header__wrapper');

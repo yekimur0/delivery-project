@@ -19,12 +19,13 @@
 // UI //////////////////////////////////////
 @import './components/ui.scss';
 // UI //////////////////////////////////////
-@import './components/card.scss';
+@import './components/food.scss';
 
 @import './components/footer.scss';
 
 @import './pages/stock.scss';
 
+@import './pages/product.scss';
 
 $widthContainer: 1300;
 
@@ -56,7 +57,7 @@ $widthContainer: 1300;
     }
    &__menu{
     display: none;
-    @media(max-width: $phone) {
+    @media(max-width: $tablet) {
         display: block;
        }
    }
@@ -75,13 +76,17 @@ $widthContainer: 1300;
     }
     &__logo {
         margin-right: 4.5rem;
+        @media(max-width: $tablet) {
+            margin-right: 1.5rem;
+            padding-left: 15px;
+        }
         @media(max-width: $phone) {
             margin: 0;
             text-align: center;
         }
         a {
             img {
-                display: inline-block;
+                min-width: fit-content;
             }
         }
     }
@@ -114,6 +119,11 @@ $widthContainer: 1300;
             left: 0;
         }
 
+    }
+    &__icon {
+        img {
+            min-width: 37px;
+        }
     }
     &__list {
         display: flex;
@@ -196,7 +206,7 @@ $widthContainer: 1300;
             min-width: 25rem;
         }
         @media(max-width: $tablet) {
-            min-width: 30rem;
+            min-width: 25rem;
             height: 40px;
         }
         @media(max-width: $phone) {
@@ -262,7 +272,7 @@ $widthContainer: 1300;
     display: flex;
     align-items: center;
     @media(max-width: $tablet) {
-        width: 15rem;
+        width: 12rem;
         margin-left: 0;
     }
     @media(max-width: $phone) {
@@ -278,8 +288,12 @@ $widthContainer: 1300;
         padding: 18px 20px 18px 24px;
         font-weight: 600;
         position: relative;
+      
         @media(max-width: $tabletlg) {
             padding: 10px 20px 10px 24px;
+        }
+        @media(max-width: $tablet) {
+            padding: 10px 20px 10px 10px;
         }
         @media(max-width: $phone) {
             padding: 5px 15px 5px 15px;
