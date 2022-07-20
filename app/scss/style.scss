@@ -280,19 +280,25 @@ $widthContainer: 1300;
         flex-direction: column-reverse;
         margin-left: auto;
     }
+    &__items {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        @media(max-width: $phone) {
+            flex-direction: column-reverse;
+        }
+    }
    
    &__text {
         color: #fff;
         font-size: 14px;
+        display: inline-flex;
         flex: 1 1 auto;
         padding: 18px 20px 18px 24px;
         font-weight: 600;
         position: relative;
       
         @media(max-width: $tabletlg) {
-            padding: 10px 20px 10px 24px;
-        }
-        @media(max-width: $tablet) {
             padding: 10px 20px 10px 10px;
         }
         @media(max-width: $phone) {
@@ -304,7 +310,7 @@ $widthContainer: 1300;
             position: absolute;
             right: 15px;
             top: 10px;
-            width: 2px;
+            width: 1px;
             height: 38px;
             background-color: rgba(255, 255, 255, 0.377);
             @media(max-width: $tabletlg) {
@@ -324,6 +330,23 @@ $widthContainer: 1300;
                 -o-transform: translateX(50%);
 }
         }
+   }
+   &__icon {
+    padding: 5px 20px 5px 10px;
+    img {
+        width: 100%;
+    }
+    @media(max-width: $xl) {
+        padding: 5px 10px 5px 10px;
+
+    }
+    @media(max-width: $tabletlg) {
+        padding: 5px;
+    }
+    @media(max-width: $phone) {
+        padding: 5px 10px 0px 10px;
+    }
+    
    }
    &__counter {
         font-size: 12px;
