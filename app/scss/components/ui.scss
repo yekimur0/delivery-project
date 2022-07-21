@@ -7,6 +7,7 @@
     margin-left: 7rem;
     position: relative;
     @media(max-width: $phone) {
+        font-size: 2.6rem;
         margin-left: 4.4rem;
     }
     &:before {
@@ -18,7 +19,7 @@
         height: 1.8rem;
         background-color: $darkgreen;
         @media(max-width: $phone) {
-            top: 5px;
+            top: 8px;
         }
     }
 }

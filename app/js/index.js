@@ -67,7 +67,7 @@
   const secFood = document.querySelector('.food')
   const hum = document.querySelector('.menu-header__icon');
   const productItem = document.querySelectorAll('.item');
-
+  const productArr = []
 
   // Добавляем рандомный Id к каждому продукту
 const randomId = () => {
@@ -91,6 +91,9 @@ productItem.forEach(item => {
     if(target.closest('[data-name="minus-btn"]')) {
       minusCounter(target)
     }
+    if(target.closest('.cart__items')) {
+      rout()
+    }
   })
   // listener 
   hum.addEventListener('click', openMenu);
@@ -103,8 +106,21 @@ productItem.forEach(item => {
          counterItem.classList.add('_active'); 
      
          addCounterTemplate(item);
-
       
+      let itemId = item.id;
+      let itemTitle = item.querySelector('.content-food__title').innerText;
+      let itemDesc = item.querySelector('.content-food__desc').innerText;
+      let itemPrice = item.querySelector('.food-item__price').textContent;
+
+      const productData = {
+        id: itemId,
+        Title: itemTitle,
+        description: itemDesc,
+        price: itemPrice
+      }
+
+      productArr.push(productData)
+      console.log(productArr)
   }
 
 
@@ -160,6 +176,15 @@ productItem.forEach(item => {
     bodyLock.classList.toggle('lock') 
 }
 
+function rout() {
+  if(productArr.length === 0) {
+    const modalBasket = document.querySelector('.modal-basket');
+          modalBasket.classList.add('modal-basket-active');
+  } 
+  if(productArr.length >= 1 ) {
+    window.location.href = 'basket.html';
+  }
+}
 
 
 
